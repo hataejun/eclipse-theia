@@ -15,6 +15,7 @@
  ********************************************************************************/
 
 import { injectable } from 'inversify';
+import { Disposable } from './../../common/disposable';
 import { OpenerService, OpenHandler } from '../opener-service';
 
 /**
@@ -22,6 +23,9 @@ import { OpenerService, OpenHandler } from '../opener-service';
  */
 @injectable()
 export class MockOpenerService implements OpenerService {
+    addHandler(openHandler: OpenHandler): Disposable {
+        throw new Error('MockOpenerService is for testing only.');
+    }
 
     async getOpeners(): Promise<OpenHandler[]> {
         return [];
