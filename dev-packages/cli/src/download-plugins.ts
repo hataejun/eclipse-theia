@@ -185,7 +185,7 @@ export function xfetch(url: string, options?: RequestInit): Promise<Response> {
     const proxiedOptions: RequestInit = { ...options };
     const proxy = getProxyForUrl(url);
     if (!proxiedOptions.agent && proxy !== '') {
-	process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+        process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
         proxiedOptions.agent = new HttpsProxyAgent(proxy);
     }
